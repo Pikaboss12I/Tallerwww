@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Plato{% endblock %}
+
+{% block principal %}
+<div class="row">
+    <h2>Borrar plato</h2>
+    <div class="card">
+        <div class="card-body">
+            <h1>¿Esta seguro de que quiere hacer la eliminación de {{plato.nombre}}?</h1>
+            <a class="btn btn-primary" href="{% url 'gestionarplatos'%}">Atras</a>
+            <form method="POST">
+                {% csrf_token %}
+                <input class="btn btn-primary" type="submit" name="Borrar" value="Borrar">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Restaurante{% endblock %}
+{% block principal %}
+<div class="container">
+    <div class="header">
+        <h1 style="text-align:center">Bienvenido</h1> 
+    </div>
+    <div class="articles">
+        <p class="sub">
+            <div style="text-align:center" class="col">
+                <a class="btn btn-primary" href="{% url 'gestionarplatos'%}">Platos</a>
+                <a class="btn btn-primary" href="{% url 'gestionaralimentos'%}">Alimentos</a>
+            </div>
+        </p>
+    </div>
+</div>
+{% endblock %}

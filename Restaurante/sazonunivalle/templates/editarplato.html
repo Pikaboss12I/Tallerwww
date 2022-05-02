@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Plato{% endblock %}
+
+{% block principal %}
+<div class="row">
+    <h2>Editar plato</h2>
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="post">{% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" name="Guardar" value="Guardar">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

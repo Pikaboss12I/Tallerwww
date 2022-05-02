@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Gestionar Platos{% endblock %}
+
+{% block principal %}
+<div class="row">
+    <h2>Gestionar los platos</h2>
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="post">{% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" name="Crear" value="Crear">
+            </form>
+        </div>
+    </div>
+    <div class="table-responsive py-4">
+        <h1>Lista de platos</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tiempo preparación</th>
+                    <th>Categoria</th>
+                    <th>Alimento</th>
+                </tr>
+                <tbody>
+                    {% for p in platos %}
+                    <tr>
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.tiempo_preparacion}}</td>
+                        <td>{{p.categoria}}</td>
+                        <td>
+                        {% for a in p.alimento.all %}
+                        {{a}} 
+                        {% endfor %}
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'edicion' id=p.id%}">Editar plato</a>
+                            <a class="btn btn-primary" href="{% url 'borrado' id=p.id%}" method="post">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </thead>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
